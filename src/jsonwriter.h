@@ -2,7 +2,7 @@
 #define JSONWRITER_H
 
 #include "Arduino.h"
-#include <SPIFFS.h>
+#include <Fs.h>
 
 
 //! Type of JSON value /from RapidJson/
@@ -19,12 +19,12 @@ enum Type {
 class JsonWriter
 {
  private:
-    bool    writenumbersasstring=0;
+    bool    _writenumbersasstring=0;
  public:
-    JsonWriter();
-    ~JsonWriter();
+    JsonWriter(){};
+    ~JsonWriter(){};
     bool Open(String filename);
-    void SetWriteNumbersAsString(bool asstring){writenumbersasstring=asstring;};
+    void SetWriteNumbersAsString(bool asstring){_writenumbersasstring=asstring;};
     bool GetWriteNumbersASString(){return writenumbersasstring;};
 };
 
